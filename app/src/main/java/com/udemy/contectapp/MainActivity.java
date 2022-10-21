@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -42,24 +43,24 @@ public class MainActivity extends AppCompatActivity implements PersonAdapter.Ite
         tvName.setText(ApplicationClass.people.get(index).getName());
         tvTel.setText(ApplicationClass.people.get(index).getTelNr());
 
-//        btnAdd = findViewById(R.id.btnAdd);
-//        fragmentManager = this.getSupportFragmentManager();
-//        listFrag = (ListFrag) fragmentManager.findFragmentById(R.id.list_frag);
-//        etName = findViewById(R.id.etName);
-//        etTel = findViewById(R.id.etTel);
-//        btnAdd.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                if (etName.getText().toString().isEmpty() || etTel.getText().toString().isEmpty()) {
-//                    Toast.makeText(MainActivity.this, "Please enter all fields!", Toast.LENGTH_SHORT).show();
-//                } else {
-//                    ApplicationClass.people.add(new Person(etName.getText().toString().trim(), etTel.getText().toString().trim()));
-//                    Toast.makeText(MainActivity.this, "Person successfully added!", Toast.LENGTH_SHORT).show();
-//                    etName.setText(null);
-//                    etTel.setText(null);
-//                    listFrag.notifyDataChanged();
-//                }
-//            }
-//        });
+        btnAdd = findViewById(R.id.btnAdd);
+        fragmentManager = this.getSupportFragmentManager();
+        listFrag = (ListFrag) fragmentManager.findFragmentById(R.id.list_frag);
+        etName = findViewById(R.id.etName);
+        etTel = findViewById(R.id.etTel);
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (etName.getText().toString().isEmpty() || etTel.getText().toString().isEmpty()) {
+                    Toast.makeText(MainActivity.this, "Please enter all fields!", Toast.LENGTH_SHORT).show();
+                } else {
+                    ApplicationClass.people.add(new Person(etName.getText().toString().trim(), etTel.getText().toString().trim()));
+                    Toast.makeText(MainActivity.this, "Person successfully added!", Toast.LENGTH_SHORT).show();
+                    etName.setText(null);
+                    etTel.setText(null);
+                    listFrag.notifyDataChanged();
+                }
+            }
+        });
     }
 }
